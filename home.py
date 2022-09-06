@@ -1,14 +1,11 @@
 import streamlit as st
 
-# Custom imports 
-#from multipage import MultiPage
-#from pages import models_map, compare_models, growth_monitor # import your pages here
-
-# Create an instance of the app 
-#app = MultiPage()
+st.set_page_config(
+     page_title="Feeding model App - Home",
+     page_icon="📊")
 
 # Title of the main page
-st.title("Feed model application")
+st.title("Feeding model application")
 st.markdown("# Main page 🎈")
 st.sidebar.markdown("# Main page 🎈")
 
