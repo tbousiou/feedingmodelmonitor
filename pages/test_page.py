@@ -22,13 +22,3 @@ rows = run_query()
 # Print results.
 for row in rows.data:
     st.write(f"{row['name']} has a :{row['pet']}:")
-
-
-exit()
-
-import database
-
-results = database.get_user_models()
-
-for model in results:
-    print(model['title'])
