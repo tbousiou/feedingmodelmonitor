@@ -4,13 +4,31 @@ import streamlit as st
 import pydeck as pdk
 import math
 import sqlite3
+from database import init_connection
 
 
+st.title("Model Locations")
+st.write("Here you can view the custom feeding models where users have submitted. If you find a model in your region and with same type of breed you can select it in the feeding monitor page")
+st.info("If you have just sumbitted a model and does not appear here press the **C** key to clear the page cache", icon='ℹ️')
+# Fetch data from the database
 
-connection = sqlite3.connect("data.db")
-df = pd.read_sql("SELECT * FROM user_models",connection)
-# print(df)
-# exit()
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
+def run_query():
+    return supabase.table("custom_models").select("*").execute()
+
+try:
+    supabase = init_connection()
+    rows = run_query()
+except:
+    st.error("Something went wrong, could not connect to the database", icon='😨')
+    st.stop()
+
+
+df = pd.DataFrame(rows.data)
+
+st.header("Models map")
+
 # SCATTERPLOT_LAYER_DATA = "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json"
 # df = pd.read_json(SCATTERPLOT_LAYER_DATA)
 
@@ -41,6 +59,9 @@ layer = pdk.Layer(
 view_state = pdk.ViewState(latitude=49.7749295, longitude=13.0, zoom=3, bearing=0, pitch=0)
 
 # Render
-r = pdk.Deck(layers=[layer], initial_view_state=view_state, tooltip={"text": "{title}\n{model}"})
-st.title("Model Locations Viewer")
+r = pdk.Deck(layers=[layer], initial_view_state=view_state, tooltip={"text": "{model_name}\n{location}"})
+
 st.pydeck_chart(r)
+
+st.header("Models Table")
+df[['model_name', 'breed_type', 'base_type','location']]
