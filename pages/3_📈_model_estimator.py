@@ -6,7 +6,7 @@ from database import init_connection
 
 st.set_page_config(
     page_title="Model Estimator",
-    page_icon="📊")
+    page_icon="⭕")
 
 st.title('Dairy Heifer Model Prameter Estimator')
 st.write('Estimate parameters from various feeding models to specific farmer requirements')
@@ -20,7 +20,7 @@ base_models = [m1, m2]
 # Section 1 - Choose base feeding models
 model_names = [m1.name, m2.name]
 
-st.header("Step 1: Choose feeding model")
+st.header("Step 1: Choose base feeding model")
 selected_model_name = st.selectbox(
     'Select the base feeding model', model_names)
 selected_model_index = model_names.index(selected_model_name)

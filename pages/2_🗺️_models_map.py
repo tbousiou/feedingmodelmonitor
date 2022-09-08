@@ -6,6 +6,9 @@ import math
 import sqlite3
 from database import init_connection
 
+st.set_page_config(
+    page_title="Models Map",
+    page_icon="⭕")
 
 st.title("Model Locations")
 st.write("Here you can view the custom feeding models where users have submitted. If you find a model in your region and with same type of breed you can select it in the feeding monitor page")

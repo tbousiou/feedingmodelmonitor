@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 
 
+st.set_page_config(
+    page_title="Growth Monitor",
+    page_icon="⭕")
 
 st.title('Dairy Heifer Growth monitor')
 st.write('Compare and monitor Heifer growth with breed standards. Growth charts and references:')
@@ -13,18 +16,19 @@ st.write('Compare and monitor Heifer growth with breed standards. Growth charts 
 
 
 # Read excel file with growth charts
-growth_data = pd.ExcelFile('data/growth_charts_1.xlsx')
+growth_data_file = pd.ExcelFile('data/growth_charts_1.xlsx')
 # For each breed type there is a separate sheet
-breed_types = growth_data.sheet_names  # see all sheet names
+breed_types = growth_data_file.sheet_names  # see all sheet names
 
 #xl.parse(sheet_name)  # read a specific sheet to DataFrame
-st.subheader("Choose breed type")
-option = st.selectbox('Select breed type', breed_types)
+st.header("Step 1: Choose breed type")
+selected_breed = st.selectbox('Select breed type', breed_types)
 
-data = growth_data.parse(option,index_col=0)
+model_bw_data = growth_data_file.parse(selected_breed,index_col=0)
 
-st.write(f"The following chart shows the recommended range of body weight of {option} breed. For normal growth the weight must be between the bottom and top percentiles")
-st.line_chart(data)
+
+st.write(f"The following chart shows the recommended range of body weight of {selected_breed} breed. For normal growth the weight must be between the bottom and top percentiles")
+st.line_chart(model_bw_data)
 
 
 st.subheader("Upload your data")
@@ -50,12 +54,12 @@ if uploaded_file is not None:
    
     animal_data = user_data.iloc[:,selected_animal-1]
 
-    data['compare'] = animal_data
+    model_bw_data['compare'] = animal_data
 
-    st.line_chart(data)
+    st.line_chart(model_bw_data)
     # data.iloc[:,0] - animal_data
-    mae1 = np.mean(np.abs((data.iloc[:,0]-animal_data)))
-    mae2 = np.mean(np.abs((data.iloc[:,1]-animal_data)))
+    mae1 = np.mean(np.abs((model_bw_data.iloc[:,0]-animal_data)))
+    mae2 = np.mean(np.abs((model_bw_data.iloc[:,1]-animal_data)))
     treshold = 30
     (mae1,mae2)
     ok = (mae1 <= 10) or (mae2 <=10) or (mae1 <=treshold) and (mae2 <=treshold)
@@ -64,7 +68,7 @@ if uploaded_file is not None:
     else:
         st.subheader("Outside growth limits 😨")
 
-
+    user_data
     #result = pd.concat([data, user_data], axis=1)
 
     #st.line_chart(result)
