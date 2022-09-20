@@ -1,6 +1,15 @@
 
 import numpy as np
 
+base_models = [
+    {'name': 'Base model 1', 'base_type':0, 'pa': 15, 'pb': 0.0022},
+    {'name': 'Base model 2', 'base_type':1, 'pa': 15, 'pb': 0.0022, 'pc': 4, 'pd': 0.0045}
+]
+
+
+
+
+
 class model1:
     def __init__(self, name='Base Model 1', a=15, b=0.0022):
         self.name = name

@@ -136,7 +136,7 @@ if uploaded_file is not None:
             custom_model['location'] = st.session_state.location
             custom_model['lat'] = st.session_state.lat
             custom_model['lon'] = st.session_state.lon
-            custom_model['base_type'] = "A"
+            custom_model['base_type'] = 0
             custom_model['pa'] = parameter_a
             custom_model['pb'] = parameter_b
             custom_model['breed_type'] = selected_breed

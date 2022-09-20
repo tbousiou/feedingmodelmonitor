@@ -6,6 +6,7 @@ import math
 import sqlite3
 from database import init_connection
 
+
 st.set_page_config(
     page_title="Models Map",
     page_icon="⭕")
