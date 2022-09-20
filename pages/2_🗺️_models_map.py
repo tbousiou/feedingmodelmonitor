@@ -1,9 +1,7 @@
 import pandas as pd
-import numpy as np
 import streamlit as st
 import pydeck as pdk
-import math
-import sqlite3
+
 from database import init_connection
 
 
@@ -30,7 +28,7 @@ except:
 
 
 df = pd.DataFrame(rows.data)
-
+map_df = df[['lat', 'lon', 'model_name', 'location']]
 st.header("Models map")
 
 # SCATTERPLOT_LAYER_DATA = "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json"
@@ -43,7 +41,7 @@ st.header("Models map")
 # Define a layer to display on a map
 layer = pdk.Layer(
     "ScatterplotLayer",
-    df,
+    map_df,
     pickable=True,
     opacity=0.8,
     stroked=True,

@@ -1,9 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-from database import init_connection
-import models
-
 
 st.set_page_config(
     page_title="Growth Monitor",
