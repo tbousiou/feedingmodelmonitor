@@ -16,6 +16,7 @@ This application consists of three separate tools:
 * **Growth monitor**: Monitor the body weight growth of your animals and compare it with the recommended growth.
 * **Feeding models map and catalogue**: Explore custom feeding models that other users have created.
 * **Model estimator**: Create a custom model to meet your requirements.
+* **Find model**: Find a model suitable for your requirements.
 
 More instructions you will find at the page of each tool.
 '''
