@@ -66,9 +66,7 @@ if uploaded_file is not None:
     errors['icon'] = errors['test'].apply(lambda x: '🆗' if x else '⚠️')
     
     st.table(errors)
-   
-    st.write("I'm ", error_treshold, 'years old')
-    
+       
     total_animals = user_bw_data.shape[1]
     st.header("Step 4: View each animal")
     st.markdown("""Graphicaly compare each animal growth curve against the recommended top and bottom percentiles.
