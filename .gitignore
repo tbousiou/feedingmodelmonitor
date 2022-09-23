@@ -1,6 +1,8 @@
 .streamlit/
 .vscode/
 archive/
+pages/5_test_page.py
+test_code.py
 
 Skip to content
 

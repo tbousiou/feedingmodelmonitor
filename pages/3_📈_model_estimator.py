@@ -105,16 +105,19 @@ if uploaded_file is not None:
         
     elif model['model_id'] == 1:
         parameter_a = st.number_input(
-            'Parameter a', min_value=1.0, max_value=20.0, value=param_a, step=0.5)
+            'Parameter a', min_value=0.5, max_value=1.0, value=param_a, step=0.01, format='%.4f')
         parameter_b = st.number_input(
-            'Parameter b', min_value=0.001, max_value=0.003, value=param_b, step=0.0001, format='%.4f')
+            'Parameter b', min_value=0.2, max_value=0.3, value=param_b, step=0.001, format='%.4f')
         parameter_c = st.number_input(
-            'Parameter c', min_value=1.0, max_value=20.0, value=param_c, step=0.5)
+            'Parameter c', min_value=0.03, max_value=0.06, value=param_c, step=0.005, format='%.4f')
         parameter_d = st.number_input(
-            'Parameter d', min_value=0.001, max_value=2.0, value=param_d, step=0.1, format='%.4f')
+            'Parameter d', min_value=0.05, max_value=0.2, value=param_d, step=0.01, format='%.4f')
 
-        estimator_dmi = estimator_bw.apply(dmi1,a=model_params['a'],b=model_params['b'],c=model_params['c'],d=model_params['d'])
+        
+
+        estimator_dmi = estimator_bw.applymap(dmi1,a=model_params['a'],b=model_params['b'],c=model_params['c'],d=model_params['d'])
         estimator_dmi['user'] = estimator_bw['user'].apply(dmi1,a=parameter_a,b=parameter_b,c=parameter_c,d=parameter_d)
+        
     
     # user_model = model
     # estimator_dmi = estimator_bw.apply(dmi0,a=model_params['a'],b=model_params['b'])

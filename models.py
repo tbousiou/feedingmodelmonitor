@@ -10,7 +10,7 @@ base_model_1 = {
     'name': 'Base model 1',
     'model_id': 0,
     'params': {
-        'a': 15.0,
+        'a': 15.36,
         'b': 0.0022
     },
     'latex': r'''DMI = a \cdot \left( 1-e^{-b\cdot BW} \right)'''
@@ -21,10 +21,10 @@ base_model_2 = {
     'name': 'Base model 2',
     'model_id': 1,
     'params': {
-        'a': 15.0,
-        'b': 0.0022,
-        'c': 10.0,
-        'd': 0.3
+        'a': 0.75,
+        'b': 0.2435,
+        'c': 0.0466,
+        'd': 0.1128
     },
     'latex': r'''\begin{equation*}
 DMI=\begin{cases}
@@ -37,13 +37,35 @@ DMI=\begin{cases}
 }
 
 
-def dmi0(bw,a,b):
+
+def nemcalc(bw):
+    """Calculate the Net Energy for Maintenance"""
+    
+    if bw <= 136:
+        nem = 3.1
+    elif bw <= 181:
+        nem = 3.8
+    elif bw <= 227:
+        nem = 4.5
+    elif bw <= 272:
+        nem = 5.2
+    elif bw <= 317.5:
+        nem = 5.8
+    else:
+        nem = 6.0
+    
+    nem = bw * 0.01
+
+    return nem
+
+
+def dmi0(bw,a=15.36,b=0.0022):
     return a * (1 - np.exp(-b*bw))
 
-def dmi1(bw,a,b,c,d,t=20,nem=1):
-
-    #dmi = np.power(bw,0.75) * (0.2435*nem - 0.0466 * np.power(nem,2) - 0.1128) / nem
-    dmi = np.power(bw,0.75) * (a*nem - 0.0466 * np.power(nem,2) - 0.1128) / nem
+def dmi1(bw,a=0.75,b=0.2435,c=0.0466,d=0.1128,t=20):
+    nem = 1.24
+    # dmi = np.power(bw,0.75) * (0.2435*nem - 0.0466 * np.power(nem,2) - 0.1128) / nem
+    dmi = np.power(bw,a) * (b*nem - c * np.power(nem,2) - d) / nem
     if t < 5:
         dmi = dmi * (1-((5-t)*0.004644))
     elif t > 20:
