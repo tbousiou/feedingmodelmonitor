@@ -10,7 +10,7 @@ st.set_page_config(
 # Fetch data from the database
 
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
+@st.experimental_memo(ttl=60)
 def run_query():
     return supabase.table("custom_models").select("*").execute()
 
@@ -113,7 +113,7 @@ if uploaded_file is not None:
         dpc = base_model_2['params']['c']
         dpd = base_model_2['params']['d']
 
-        estimator_dmi = estimator_bw.apply(dmi1,a=parameter_a,b=parameter_b,c=parameter_c,d=parameter_d)
+        estimator_dmi = estimator_bw.apply(dmi1,a=dpa,b=dpb,c=dpc,d=dpd)
         estimator_dmi['user'] = estimator_bw['user'].apply(dmi1,a=parameter_a,b=parameter_b,c=parameter_c,d=parameter_d)
     
     st.line_chart(estimator_dmi)

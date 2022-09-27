@@ -15,7 +15,7 @@ st.info("If you have just sumbitted a model and does not appear here press the *
 # Fetch data from the database
 
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
+@st.experimental_memo(ttl=60)
 def run_query():
     return supabase.table("custom_models").select("*").execute()
 

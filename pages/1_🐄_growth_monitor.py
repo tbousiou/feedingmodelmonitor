@@ -6,7 +6,7 @@ st.set_page_config(
     page_icon="⭕")
 
 st.title('Dairy Heifer Growth monitor')
-st.write('Compare and monitor Heifer growth with breed standards. Growth charts and references:')
+st.write('Monitor Heifer growth with breed standards. Growth charts and references:')
 """
 - https://extension.psu.edu/growth-charts-for-dairy-heifers
 - https://lactanet.ca/en/growth-chart-by-breed/
@@ -56,7 +56,7 @@ if uploaded_file is not None:
     errors = pd.DataFrame()
     # errors['bottom mae'] = abs(user_bw_data.sub(model_bw_data['75th'], axis=0)).mean()
     # errors['top mae'] = abs(user_bw_data.sub(model_bw_data['95th'], axis=0)).mean()
-
+    
     errors['bottom mae'] = abs(user_bw_data.sub(model_bw_data.iloc[:,0], axis=0)).mean()
     errors['top mae'] = abs(user_bw_data.sub(model_bw_data.iloc[:,1], axis=0)).mean()
     

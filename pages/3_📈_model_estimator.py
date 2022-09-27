@@ -40,9 +40,6 @@ elif model['model_id'] == 1:
     st.write(f"Default model parameters a = {param_a}, b={param_b},  c = {param_c}, d={param_d}")
 
 
-
-
-
 # Section 2 - Select breed type and show BW and DMI graphs
 
 # Read excel file with growth charts
@@ -53,7 +50,6 @@ breed_types = growth_data_file.sheet_names  # see all sheet names
 st.header("Step 2: Choose breed type")
 selected_breed = st.selectbox('Select your breed type', breed_types)
 model_bw_data = growth_data_file.parse(selected_breed, index_col=0)
-
 
 
 st.header("Step 3: Upload your data")
@@ -93,7 +89,6 @@ if uploaded_file is not None:
 
     # user_model = model
 
-
     if model['model_id'] == 0:
         parameter_a = st.number_input(
             'Parameter a', min_value=1.0, max_value=20.0, value=param_a, step=0.5)
@@ -125,7 +120,6 @@ if uploaded_file is not None:
     # estimator_dmi
     st.line_chart(estimator_dmi)
     
-
 
     st.header("Step 5: Submit your model")
     st.write(

@@ -4,15 +4,12 @@ st.set_page_config(
     page_title="Home",
     page_icon="⭕")
 
-
-st.warning("## 🚧 This app is under construction 🚧")
-
 # Title of the main page
-st.title("Feeding model application")
+st.title("Heifer Feeding model application")
 
 st.header("Intro")
 '''
-This application consists of three separate tools:
+This application consists of the following tools:
 * **Growth monitor**: Monitor the body weight growth of your animals and compare it with the recommended growth.
 * **Feeding models map and catalogue**: Explore custom feeding models that other users have created.
 * **Model estimator**: Create a custom model to meet your requirements.
