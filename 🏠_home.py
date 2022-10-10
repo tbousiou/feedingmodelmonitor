@@ -37,6 +37,7 @@ This app is part of the Atlas programe blah blah blah ...
 - **Developer**: Theodoros Bousiou, Data Scientist, Develooper
 
 ### Licence
-This work is licensed under the xxxx licence
+This work is licensed under the MIT licence
+[View code in github](https://github.com/tbousiou/feedingmodelmonitor) 
 
 '''
