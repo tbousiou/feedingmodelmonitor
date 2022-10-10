@@ -7,7 +7,10 @@
 * supabase
 * openpyxl
 
-Remove pywin32 and pywinpty from requirements.txt
+# Installation
+    pip install requirements.txt
+
+Note: Remove pywin32 and pywinpty from requirements.txt if installing in streamlit cloud
 
 # Feeding Model Estimator and Monitor
 blah blah
