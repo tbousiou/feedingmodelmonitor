@@ -1,11 +1,5 @@
 import numpy as np
 
-base_models = [
-    {'name': 'Base model 1', 'base_type':0, 'pa': 15, 'pb': 0.0022},
-    {'name': 'Base model 2', 'base_type':1, 'pa': 15, 'pb': 0.0022, 'pc': 4, 'pd': 0.0045}
-]
-
-
 base_model_1 = {
     'name': 'Base model 1',
     'model_id': 0,

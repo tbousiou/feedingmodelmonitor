@@ -1,5 +1,14 @@
 # Under construction 🚧🚧🚧🚧
 
+# Requirements
+* Python 3.10
+* streamlit
+* geopy
+* supabase
+* openpyxl
+
+Remove pywin32 and pywinpty from requirements.txt
+
 # Feeding Model Estimator and Monitor
 blah blah
 
