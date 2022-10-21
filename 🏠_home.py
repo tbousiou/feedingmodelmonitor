@@ -40,7 +40,7 @@ st.image('assets/atlas-logo.png', width=300)
 ### Team 
 - **Supervisor**: Thomas Kotsopoulos, Professor, Aristotle University of Thessaloniki
 - **Research**: Vasilis Firfiris
-- **Developer**: Theodoros Bousiou, Data Scientist, Develooper
+- **Developper**: Theodoros Bousiou
 
 ### Licence
 This work is licensed under the MIT licence
