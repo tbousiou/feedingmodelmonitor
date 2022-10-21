@@ -38,12 +38,15 @@ This work is part of the ATLAS project.
 st.image('assets/atlas-logo.png', width=300)
 '''
 ### Team 
-- **Supervisor**: Thomas Kotsopoulos, Professor, Aristotle University of Thessaloniki
+- **Supervisors**: 
+    - Thomas Kotsopoulos, Professor, Aristotle University of Thessaloniki, Greece
+    - Dimitrios Moschou, Professor, Aristotle University of Thessaloniki, Greece
 - **Research**: Vasilis Firfiris
-- **Developper**: Theodoros Bousiou
+- **Developer**: Theodoros Bousiou
 
 ### Licence
 This work is licensed under the MIT licence
+
 [View code in github](https://github.com/tbousiou/feedingmodelmonitor) 
 
 '''
