@@ -25,12 +25,18 @@ Use the growth monitor tool to monitor the growth of your animals. You compare t
 models or a custom model created by another user. To find more info about the custom models use the models map and catalogue tool.
 Finally you can create your custom model and submit it to the database using the model estimator tool.
 '''
+st.subheader("Sample data")
+'''
+[Full 24 months](https://github.com/tbousiou/feedingmodelmonitor/raw/main/data/example_user_growth_data-1.xlsx) sample body growth data, for use in all tools.
 
-
+[Partial 14 months](https://github.com/tbousiou/feedingmodelmonitor/raw/main/data/example_user_growth_data-2.xlsx) sample body growth data, for use in growth monitor.
+'''
 st.header("About")
 '''
-This app is part of the Atlas programe blah blah blah ...
-
+This work is part of the ATLAS project.
+'''
+st.image('assets/atlas-logo.png', width=300)
+'''
 ### Team 
 - **Supervisor**: Thomas Kotsopoulos, Professor, Aristotle University of Thessaloniki
 - **Research**: Vasilis Firfiris
